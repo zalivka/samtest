@@ -1,0 +1,4 @@
+# -e sam2
+Flask
+matplotlib
+opencv-python

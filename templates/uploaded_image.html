@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <title>Uploaded Image!</title> -->
+    <script>
+        function getClickCoordinates(event) {
+            var x = event.offsetX;
+            var y = event.offsetY;
+            console.log("Clicked coordinates: x=" + x + ", y=" + y);
+            // Redirect to get_coordinates handler with coordinates
+            window.location.href = '/get-coordinates?x=' + x + '&y=' + y + '&filename=' + encodeURIComponent('{{ filename }}');
+        }
+    </script>
+</head>
+<body>
+    <h1>Uploaded Image</h1>
+    <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded Image" onclick="getClickCoordinates(event)">
+    <p>Filename: {{ filename }}</p>
+    <p>Click on the image to get coordinates.</p>
+</body>
+</html>
